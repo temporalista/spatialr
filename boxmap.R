@@ -14,7 +14,7 @@
 boxmapr <- function(data,var, var2, h=1.5){
   #based on https://rpubs.com/helson/608377
   invisible(lapply(c("sf", "ggplot2","gridExtra","ggpubr"), require, character.only = TRUE))
-  x <- data[,var]
+  x <- data[,var] %>% na.omit %>%
   names(x)[1] <- 'newvar'
   
   # brkpts <- boxplot(x$newvar,range = h)$stats
