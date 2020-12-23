@@ -16,7 +16,7 @@ boxmapr <- function(data,
                     h = 1.5,
                     splot = TRUE,
                     vardep,
-                    vartitle="") {
+                    title="") {
   #based on https://rpubs.com/helson/608377
   invisible(lapply(
     c("sf", "ggplot2", "cowplot", "ggpubr"),
