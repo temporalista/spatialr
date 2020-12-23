@@ -112,7 +112,7 @@ boxmapr <- function(data,
   
   gtitle <-ggdraw() + 
     draw_label(
-      vartitle)
+      title)
   
   g <- plot_grid(gtitle, plot_grid(map, gd), ncol = 1, rel_heights = c(0.08,0.92))
   g
