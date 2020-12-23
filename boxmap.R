@@ -15,7 +15,8 @@ boxmapr <- function(data,
                     var,
                     h = 1.5,
                     splot = TRUE,
-                    vardep) {
+                    vardep,
+                    vartitle="") {
   #based on https://rpubs.com/helson/608377
   invisible(lapply(
     c("sf", "ggplot2", "cowplot", "ggpubr"),
@@ -57,6 +58,11 @@ boxmapr <- function(data,
     )
   # hist <- ggplot_gtable(ggplot_build(hist))
   
+  
+  # título
+  
+  
+  # depende si se incluye el scatterplot
   if (splot == TRUE)
     scpl <- ggscatter(
       data,
@@ -102,7 +108,13 @@ boxmapr <- function(data,
       )
     
   }
-  g <- plot_grid(map, gd)
+  
+  
+  gtitle <-ggdraw() + 
+    draw_label(
+      vartitle)
+  
+  g <- plot_grid(gtitle, plot_grid(map, gd), ncol = 1, rel_heights = c(0.08,0.92))
   g
 }
 
@@ -189,7 +201,6 @@ bxpmap <- function(x,var, h) {
            "#D73027")
   
   ggplot(data = x) +
-    ggtitle(var) +
     geom_sf(aes(fill = newvar1, col = newvar1)) +
     scale_colour_manual(
       values = pal,
@@ -207,6 +218,7 @@ bxpmap <- function(x,var, h) {
       plot.title.position =  "plot",
       panel.grid.major = element_blank(),
       legend.key.height = unit(0.8, "lines"),
+      legend.text = element_text(size = 8),
       legend.box.background = element_blank(),
       legend.position = c(.95, .05),
       legend.justification = c("right", "bottom"),
@@ -214,3 +226,4 @@ bxpmap <- function(x,var, h) {
       legend.title = element_blank()
     )
 }
+
