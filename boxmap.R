@@ -136,14 +136,12 @@ bxpmap <- function(x,var, h) {
   
   #labels
   
-  lq1 <- paste0("<25%    [", round(vab, 3), "-", round(q1, 3), ")")
+  lq1 <- paste0("<25%       [", round(vab, 3), "-", round(q1, 3), ")")
   lq2 <- paste0("25%-50% [", round(q1, 3), "-", round(q2, 3), ")")
   lq3 <- paste0("50%-75% [", round(q2, 3), "-", round(q3, 3), ")")
-  lq4 <- paste0(">75%    [", round(q3, 3), "-", round(q4, 3), ")")
-  lvab <-
-    paste0("VAB     [", round(minv, 3), "-", round(vab, 3), ")")
-  lvaa <-
-    paste0("VAA     [", round(vaa, 3), "-", round(maxv, 3), "]")
+  lq4 <- paste0(">75%       [", round(q3, 3), "-", round(q4, 3), ")")
+  lvab <-paste0("VAB        [", round(minv, 3), "-", round(vab, 3), ")")
+  lvaa <-paste0("VAA        [", round(vaa, 3), "-", round(maxv, 3), "]")
   
   lbls <- c(lvab, lq1, lq2, lq3, lq4, lvaa)
   
@@ -218,9 +216,9 @@ bxpmap <- function(x,var, h) {
       plot.title.position =  "plot",
       panel.grid.major = element_blank(),
       legend.key.height = unit(0.8, "lines"),
-      legend.text = element_text(size = 8),
+      legend.text = element_text(size = 7),
       legend.box.background = element_blank(),
-      legend.position = c(.95, .05),
+      legend.position = c(.95, .03),
       legend.justification = c("right", "bottom"),
       legend.margin = margin(0),
       legend.title = element_blank()
